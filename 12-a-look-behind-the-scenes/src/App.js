@@ -6,11 +6,17 @@ import DemoOutput from './components/Demo/DemoOutput';
 
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   console.log('APP RUNNING');
 
   const toggleParagraphHandler = () => {
-    setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+    setCounter(prevCounter => prevCounter + 1);
+    console.log("The counter is : ", counter);
+    if(counter === 5) {
+      console.log("Correct :) The counter is 5!!!");
+      setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+    }
   };
 
   return (
