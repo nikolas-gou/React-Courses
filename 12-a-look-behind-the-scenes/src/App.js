@@ -6,6 +6,7 @@ import DemoOutput from './components/Demo/DemoOutput';
 
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
+  const [allowToggle, setAllowToggle] = useState(false);
   const [counter, setCounter] = useState(0);
 
   console.log('APP RUNNING');
@@ -17,12 +18,20 @@ function App() {
       console.log("Correct :) The counter is 5!!!");
       setShowParagraph((prevShowParagraph) => !prevShowParagraph);
     }
-  }, [counter===5]);
+    if(allowToggle) {
+      setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+    }
+  }, [counter===5, allowToggle]);
+
+  const allowToggleHandler = () => {
+    setAllowToggle(prevAllowToggle => !prevAllowToggle);
+  }
 
   return (
     <div className="app">
       <h1>Hi there!</h1>
       <DemoOutput show={showParagraph}/>
+      <Button onClick={allowToggleHandler}>Allow Toggle!</Button>
       <Button onClick={toggleParagraphHandler}>Toggle Paragraph!</Button>
     </div>
   );
