@@ -21,7 +21,7 @@ function App() {
     };
 
     fetchTasks(
-      { url: 'https://react-http-6b4a6.firebaseio.com/tasks.json' },
+      { url: 'https://react-http-4966f-default-rtdb.firebaseio.com/tasks.json' },
       transformTasks
     );
   }, [fetchTasks]);
