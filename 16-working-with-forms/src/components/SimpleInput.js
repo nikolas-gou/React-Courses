@@ -49,6 +49,8 @@ const SimpleInput = (props) => {
     
     setEnteredName('');
     setEnteredNameTouched(false);
+    setEnteredEmail('');
+    setEnteredEmailTouched(false);
   }
 
   const emailInputHandler = (event) => {
@@ -60,6 +62,10 @@ const SimpleInput = (props) => {
   }
 
   const nameInputClasses = enteredNameIsValid || !enteredNameTouched
+    ? 'form-control' 
+    : 'form-control invalid';
+
+  const emailInputClasses = enteredEmailIsValid || !enteredEmailTouched
     ? 'form-control' 
     : 'form-control invalid';
 
@@ -84,7 +90,7 @@ const SimpleInput = (props) => {
           <p className='error-text'>Name must not be empty.</p>
         )}
       </div>
-      <div className={nameInputClasses}>
+      <div className={emailInputClasses}>
         <label htmlFor='email'>Your E-mail</label>
         <input 
           type='email' 
@@ -96,7 +102,7 @@ const SimpleInput = (props) => {
         {emailInputIsInvalid && (
           <p className='error-text'>E-mail must not be empty.</p>
         )}
-        {!enteredEmailIsValid && enteredEmailTouched && (
+        {!enteredEmailIsValid && enteredEmailTouched && !emailInputIsInvalid && (
           <p className='error-text'>E-mail has wrong format.</p>
         )}
 
