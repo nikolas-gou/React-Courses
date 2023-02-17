@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import useInput from '../hooks/use-input';
 
@@ -20,7 +20,6 @@ const SimpleInput = (props) => {
     inputBlurHandler: emailBlurHandler,
     reset: resetEmailInput
   } = useInput(value => value.includes('@'));
-  
 
   let formIsValid = false;
 
