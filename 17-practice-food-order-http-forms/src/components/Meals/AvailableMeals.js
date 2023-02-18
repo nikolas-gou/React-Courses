@@ -1,10 +1,13 @@
+import { useEffect, useState } from 'react';
+
 import Card from '../UI/Card';
 import MealItem from './MealItem/MealItem';
 import classes from './AvailableMeals.module.css';
-import { useEffect, useState } from 'react';
+
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -21,10 +24,16 @@ const AvailableMeals = () => {
         });
       }
       setMeals(loadedMeals);
+      setIsLoading(false);
     };
-
     fetchMeals();
   }, []);
+
+  if(isLoading) {
+    return <section className={classes.MealsLoading}>
+      <p>Loading...</p>
+    </section>
+  }
 
   const mealsList = meals.map((meal) => (
     <MealItem
