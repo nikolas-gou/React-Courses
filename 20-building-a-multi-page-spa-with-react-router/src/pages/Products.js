@@ -1,5 +1,9 @@
 function ProductsPage() {
-  return <h1>The Products Page</h1>;
-}
+  return <>
+    <h1>Product-1</h1>
+    <h1>Product-2</h1>
+    <h1>Product-3</h1>
+  </>;
+};
 
 export default ProductsPage;
