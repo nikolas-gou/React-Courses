@@ -32,7 +32,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import EditEventPage from './pages/EditEvent';
 import EventDetailPage from './pages/EventDetail';
 import EventsPage, { loader as eventsLoader} from './pages/Events';
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/Error';
 import EventsRootLayout from './pages/EventsRoot';
 import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEvent';
